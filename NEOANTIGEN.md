@@ -291,22 +291,3 @@ correct answer was already known in advance.
 - **REST annotation dependency** — this pipeline requires outbound network
   access to `rest.ensembl.org` on every run; it is not a fully offline
   pipeline the way a pre-cached local SnpEff/VEP database would be.
-
-## Talking points this gives you for an interview
-
-- You can explain precisely what a binding-affinity number does and
-  doesn't tell you about a "neoantigen candidate," and name the
-  additional evidence (processing prediction, expression, immunogenicity
-  assay) a real pipeline stacks on top before calling something
-  validated.
-- You can explain the wildtype-vs-mutant fold-change check and why
-  ranking on raw mutant affinity alone is a recognized pitfall.
-- You can speak to a real cross-repo architecture decision: choosing REST
-  annotation here specifically *because* of a documented local-database
-  failure in the sibling pipeline, including the tradeoffs that decision
-  costs (network dependency, rate limits, data governance for real patient
-  data).
-- You can name one specific dependency/Python-version incompatibility you
-  found, diagnosed, and fixed correctly (pinning the runtime, not patching
-  around a removed module) — including reasoning about why it's the right
-  fix relative to alternatives (shimming vs. version pinning).

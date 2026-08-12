@@ -157,30 +157,3 @@ sequences to a public third-party API (Ensembl) as part of normal
 operation.** That's fine for HCC1395 (public, consented, non-patient
 reference material) and not fine for real clinical VCFs without a
 data-governance review first.
-
-## Talking points this gives you for an interview
-
-- You can explain *why* MHCflurry's output is a binding-affinity prediction,
-  not a neoantigen confirmation — and what additional evidence (expression,
-  processing/presentation prediction, immunogenicity assay) a real pipeline
-  would need before calling something an actual neoantigen candidate.
-- You can explain the mutant-vs-wildtype `fold_change` column and why
-  ranking on mutant affinity alone is a known pitfall (a peptide that binds
-  well *because the wildtype sequence already binds well* isn't evidence the
-  mutation matters).
-- You understand why annotation happened over a public REST API here instead
-  of a local database — a direct, documented consequence of hitting the same
-  class of infrastructure problem (`nf-variant-pipeline`'s blocked SnpEff DB
-  host) and choosing a different tool rather than declaring the step done.
-- You can speak concretely about one dependency incompatibility found and
-  fixed during development (MHCflurry 2.2.1 vs. Python 3.13's removal of the
-  `pipes` module) — a real "pin your Python version" lesson, not a
-  hypothetical one.
-- You can describe a bug that only surfaced when the actual `neoantigen.nf`
-  Nextflow workflow was run end to end, not when its individual Python
-  scripts were tested in isolation: a `--chrom` filter that silently
-  matched zero variants due to a `"chr"`-prefix mismatch, caught by
-  re-running a chromosome known in advance to contain a real hit (TP53 on
-  chr17) and noticing the ranked output came back empty instead. That's
-  the concrete difference between unit-level testing and integration
-  testing, with a real example instead of the textbook definition.
