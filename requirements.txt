@@ -1,0 +1,8 @@
+# Python 3.11 required -- mhcflurry 2.2.1's downloads_command.py imports the
+# stdlib `pipes` module, which Python 3.13 removed. See NEOANTIGEN.md,
+# "Debugging notes" for how this was found and why a venv pin (not a code
+# patch) is the fix used here.
+mhcflurry==2.2.1
+pandas==3.0.5
+biopython==1.88
+requests==2.34.2
