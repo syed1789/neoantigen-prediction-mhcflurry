@@ -157,3 +157,7 @@ sequences to a public third-party API (Ensembl) as part of normal
 operation.** That's fine for HCC1395 (public, consented, non-patient
 reference material) and not fine for real clinical VCFs without a
 data-governance review first.
+
+## Running on HPC (SLURM) and AWS
+
+Includes a SLURM head-job script and a one-shot EC2 launcher (alongside the existing `slurm`/`awsbatch` profiles). See [HPC_AWS.md](HPC_AWS.md) for steps and what was verified.
