@@ -1,5 +1,7 @@
 # neoantigen-prediction-mhcflurry
 
+[![CI](https://github.com/syed1789/neoantigen-prediction-mhcflurry/actions/workflows/ci.yml/badge.svg)](https://github.com/syed1789/neoantigen-prediction-mhcflurry/actions/workflows/ci.yml)
+
 A real, working companion pipeline to
 [nf-variant-pipeline](https://github.com/syed1789/nf-variant-pipeline)'s
 `somatic.nf`: takes a somatic (tumor-normal) VCF, finds missense mutations,
